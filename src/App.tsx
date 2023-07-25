@@ -14,7 +14,6 @@ function App() {
   const [results, setResults] = useState<Gif[]>([]); // Here, we're creating a state variable 'results' to store the search results
   const [isLoading, setIsLoading] = useState(false); // New state to handle loading status
 
-  console.log('ENV', process.env.REACT_APP_GIPHY_API_KEY);
   // This is an async function that takes a search term and makes an API call to Giphy to fetch the gifs
   const searchGifs = async (searchTerm: string) => {
     setIsLoading(true);

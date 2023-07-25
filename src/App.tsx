@@ -10,6 +10,16 @@ interface Gif {
   title: string;
 }
 
+interface GiphyGifObject {
+  id: string;
+  images: {
+    original: {
+      url: string;
+    };
+  };
+  title: string;
+}
+
 function App() {
   const [results, setResults] = useState<Gif[]>([]); // Here, we're creating a state variable 'results' to store the search results
   const [isLoading, setIsLoading] = useState(false); // New state to handle loading status
@@ -30,7 +40,7 @@ function App() {
 
     // Once we get the response, we set the results to the gifs obtained from the response
     setResults(
-      response.data.data.map((gif: any) => ({
+      response.data.data.map((gif: GiphyGifObject) => ({
         id: gif.id,
         url: gif.images.original.url,
         title: gif.title,
